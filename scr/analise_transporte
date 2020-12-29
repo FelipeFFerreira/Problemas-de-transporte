@@ -1,0 +1,174 @@
+
+>[Informacoes Sobre As Rotas Criadas]
+ 
+>Origem: A
+<Destinos: [ D ,E ,F ,]
+
+
+>Origem: B
+<Destinos: [ D ,E ,F ,]
+
+
+>Origem: C
+<Destinos: [ D ,E ,F ,]
+
+
+
+
+>[ **** Foi Detectado Oferta == Demanda ****
+
+
+
+ ********** Quadro de Custos ***********
+
+
+[IMPRESSÃO MATRIZ TRANSPORTE]
+
+Origem    	D         	E         	F         	Oferta    	
+
+A         	10        	15        	20        	40        	
+
+B         	12        	25        	18        	100       	
+
+C         	16        	14        	24        	10        	
+
+Demanda   	50        	40        	60        	0         	
+
+
+
+ ********** Quadro Inicial ***********
+
+
+[IMPRESSÃO MATRIZ TRANSPORTE (MENOR CUSTO/CANTO NOROESTE])
+
+Origem    	D         	E         	F         	Oferta    	
+
+A         	40        	0         	0         	40        	
+
+B         	10        	30        	60        	100       	
+
+C         	0         	10        	0         	10        	
+
+Demanda   	50        	40        	60        	0         	
+
+>Custo do Transporte = 2490
+
+
+>[_______________________INTERACAO___________________________] [1]
+
+
+[IMPRESSÃO MATRIZ TRANSPORTE DE DIVISAO DE CUSTOS]
+
+y1 = 10	y2 = 23	y3 = 16	
+
+x1 = 0	
+
+x2 = 2	
+
+x3 = -9	
+
+
+[IMPRESSÃO MATRIZ TRANSPORTE ANALISE ECOMICA]
+
+Origem    	D         	E         	F         	Oferta    	
+
+A         	0         	8         	-4        	0         	
+
+B         	0         	0         	0         	1993376   	
+
+C         	-15       	0         	-17       	1929501088	
+
+Demanda   	1303620379	1332576864	0         	0         	
+
+
+Posicao K = matriz[1][2]
+
+
+ ********** Quadro Apos Roteamento ***********
+
+
+[IMPRESSÃO MATRIZ TRANSPORTE (MENOR CUSTO/CANTO NOROESTE])
+
+Origem    	D         	E         	F         	Oferta    	
+
+A         	10        	30        	0         	40        	
+
+B         	40        	0         	60        	100       	
+
+C         	0         	10        	0         	10        	
+
+Demanda   	50        	40        	60        	0         	
+
+>Custo do Transporte = 2250
+
+_____________________________________________________________
+
+
+>[_______________________INTERACAO___________________________] [2]
+
+
+[IMPRESSÃO MATRIZ TRANSPORTE DE DIVISAO DE CUSTOS]
+
+y1 = 10	y2 = 15	y3 = 16	
+
+x1 = 0	
+
+x2 = 2	
+
+x3 = -1	
+
+
+[IMPRESSÃO MATRIZ TRANSPORTE ANALISE ECOMICA]
+
+Origem    	D         	E         	F         	Oferta    	
+
+A         	0         	0         	-4        	0         	
+
+B         	0         	-8        	0         	1993376   	
+
+C         	-7        	0         	-9        	1929501088	
+
+Demanda   	1303620379	1332576864	0         	0         	
+
+
+Posicao K = matriz[1][2]
+
+
+>Todos os Valores na Analise encomica Enontra-se Otimizado (negativo)
+
+
+
+ ********** Quadro de Custos ***********
+
+
+[IMPRESSÃO MATRIZ TRANSPORTE]
+
+Origem    	D         	E         	F         	Oferta    	
+
+A         	10        	15        	20        	40        	
+
+B         	12        	25        	18        	100       	
+
+C         	16        	14        	24        	10        	
+
+Demanda   	50        	40        	60        	0         	
+
+
+
+************ Quadro Final ************
+
+
+[IMPRESSÃO MATRIZ TRANSPORTE (MENOR CUSTO/CANTO NOROESTE])
+
+Origem    	D         	E         	F         	Oferta    	
+
+A         	10        	30        	0         	40        	
+
+B         	40        	0         	60        	100       	
+
+C         	0         	10        	0         	10        	
+
+Demanda   	50        	40        	60        	0         	
+
+>Custo do Transporte = 2250
+
