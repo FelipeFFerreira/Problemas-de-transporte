@@ -92,9 +92,9 @@ void MatrizTransporteInit(ptrNo origens, ptrNo destinos, FILE * fptr)
 	 	  printf(">Custo do Transporte = %d\n", calculoTransporte(matrizCusto, qtdOrigens, qtdDestinos));
 	 	  fprintf(fptr, ">Custo do Transporte = %d\n", calculoTransporte(matrizCusto, qtdOrigens, qtdDestinos));
 	 	while(1) {
-
-        printf("\n\n>[_______________________INTERACAO___________________________] [%d]\n\n", ++numeroInteracoes);
-        fprintf(fptr, "\n\n>[_______________________INTERACAO___________________________] [%d]\n\n", ++numeroInteracoes);
+	 	numeroInteracoes += 1;
+        printf("\n\n>[_______________________INTERACAO___________________________] [%d]\n\n", numeroInteracoes);
+        fprintf(fptr, "\n\n>[_______________________INTERACAO___________________________] [%d]\n\n", numeroInteracoes);
         reiniciaDivisaoCustos(vetorOrigens, vetorDestinos, qtdOrigens, qtdDestinos);
         reiniciaAnaliseEconomica(matrizCusto, qtdOrigens, qtdDestinos);
 
@@ -177,9 +177,9 @@ void MatrizTransporteInit(ptrNo origens, ptrNo destinos, FILE * fptr)
         imprimirMatrizTransporte(matrizCusto, vetorOrigens, vetorDestinos, 1, fptr);
 
    		while(1) {
-
-        	printf("\n\n>[_______________________INTERACAO___________________________] [%d]\n\n", ++numeroInteracoes);
-        	fprintf(fptr, "\n\n>[_______________________INTERACAO___________________________] [%d]\n\n", ++numeroInteracoes);
+   			numeroInteracoes += 1;
+        	printf("\n\n>[_______________________INTERACAO___________________________] [%d]\n\n", numeroInteracoes);
+        	fprintf(fptr, "\n\n>[_______________________INTERACAO___________________________] [%d]\n\n", numeroInteracoes);
         	reiniciaDivisaoCustos(vetorOrigens, vetorDestinos, qtdOrigens + 1, qtdDestinos);
         	reiniciaAnaliseEconomica(matrizCusto, qtdOrigens, qtdDestinos + 1);
 
@@ -262,9 +262,9 @@ void MatrizTransporteInit(ptrNo origens, ptrNo destinos, FILE * fptr)
         fprintf(fptr, ">Custo do Transporte = %d\n", calculoTransporte(matrizCusto, qtdOrigens + 1, qtdDestinos));
 
         while (1) {
-
-        	printf("\n\n>[_______________________INTERACAO___________________________] [%d]\n\n", ++numeroInteracoes);
-        	fprintf(fptr, "\n\n>[_______________________INTERACAO___________________________] [%d]\n\n", ++numeroInteracoes);
+        	numeroInteracoes += 1;
+        	printf("\n\n>[_______________________INTERACAO___________________________] [%d]\n\n", numeroInteracoes);
+        	fprintf(fptr, "\n\n>[_______________________INTERACAO___________________________] [%d]\n\n", numeroInteracoes);
         	reiniciaDivisaoCustos(vetorOrigens, vetorDestinos, qtdOrigens + 1, qtdDestinos);
         	reiniciaAnaliseEconomica(matrizCusto, qtdOrigens + 1, qtdDestinos);
 
