@@ -6,7 +6,7 @@
 #include "transporte.h"
 #include "listaord.h"
 
-void mallocNos(ptrNo * origens, ptrNo * destinos)
+void mallocNos(ptrNo * origens, ptrNo * destinos, FILE * fptr)
 {
     char origem[21], destino[21], op;
     int custo;
@@ -82,27 +82,27 @@ void MatrizTransporteInit(ptrNo origens, ptrNo destinos, FILE * fptr)
       castMatrizTransporteInit(matrizCusto, vetorOrigens, vetorDestinos, qtdOrigens, qtdDestinos);
      	printf("\n\n ********** Quadro de Custos ***********\n\n");
      	fprintf(fptr, "\n\n ********** Quadro de Custos ***********\n\n");
-     	imprimirMatrizTransporte(matrizCusto, vetorOrigens, vetorDestinos, 0);
+     	imprimirMatrizTransporte(matrizCusto, vetorOrigens, vetorDestinos, 0, fptr);
      	lst_info vetMinimos[qtdOrigens * qtdDestinos];
       minimos(matrizCusto, qtdOrigens, qtdDestinos, vetorOrigens, vetorDestinos, vetMinimos);
 	 	  printf("\n\n ********** Quadro Inicial ***********\n\n");
 	 	  fprintf(fptr, "\n\n ********** Quadro Inicial ***********\n\n");
 	   	metodoMenorCusto(matrizCusto, vetorOrigens, vetorDestinos, vetMinimos, qtdOrigens, qtdDestinos);
-	    imprimirMatrizTransporte(matrizCusto, vetorOrigens, vetorDestinos, 1);
+	    imprimirMatrizTransporte(matrizCusto, vetorOrigens, vetorDestinos, 1, fptr);
 	 	  printf(">Custo do Transporte = %d\n", calculoTransporte(matrizCusto, qtdOrigens, qtdDestinos));
 	 	  fprintf(fptr, ">Custo do Transporte = %d\n", calculoTransporte(matrizCusto, qtdOrigens, qtdDestinos));
 	 	while(1) {
 
         printf("\n\n>[_______________________INTERACAO___________________________] [%d]\n\n", ++numeroInteracoes);
-        printf(fptr, "\n\n>[_______________________INTERACAO___________________________] [%d]\n\n", ++numeroInteracoes);
+        fprintf(fptr, "\n\n>[_______________________INTERACAO___________________________] [%d]\n\n", ++numeroInteracoes);
         reiniciaDivisaoCustos(vetorOrigens, vetorDestinos, qtdOrigens, qtdDestinos);
         reiniciaAnaliseEconomica(matrizCusto, qtdOrigens, qtdDestinos);
 
    			divisaoCustos(matrizCusto, vetorOrigens, vetorDestinos, qtdOrigens, qtdDestinos);
    			analiseEconomica(matrizCusto, vetorOrigens, vetorDestinos, qtdOrigens, qtdDestinos);
 
-   			imprimirMatrizTransporteDiviCustos(matrizCusto, vetorOrigens, vetorDestinos, qtdOrigens, qtdDestinos);
-   			imprimirMatrizTransporte(matrizCusto, vetorOrigens, vetorDestinos, 2); //Imprimi analise
+   			imprimirMatrizTransporteDiviCustos(matrizCusto, vetorOrigens, vetorDestinos, qtdOrigens, qtdDestinos, fptr);
+   			imprimirMatrizTransporte(matrizCusto, vetorOrigens, vetorDestinos, 2, fptr); //Imprimi analise
 
         maiorMatriz(matrizCusto, qtdOrigens, qtdDestinos, &idLin, &idCol);
         printf("\nPosicao K = matriz[%d][%d]\n", idLin, idCol);
@@ -116,7 +116,7 @@ void MatrizTransporteInit(ptrNo origens, ptrNo destinos, FILE * fptr)
 
       	printf("\n\n ********** Quadro Apos Roteamento ***********\n\n");
       	fprintf(fptr, "\n\n ********** Quadro Apos Roteamento ***********\n\n");
-        imprimirMatrizTransporte(matrizCusto, vetorOrigens, vetorDestinos, 1); //custosOtimzado
+        imprimirMatrizTransporte(matrizCusto, vetorOrigens, vetorDestinos, 1, fptr); //custosOtimzado
         printf(">Custo do Transporte = %d\n", calculoTransporte(matrizCusto, qtdOrigens, qtdDestinos));
         fprintf(fptr,">Custo do Transporte = %d\n", calculoTransporte(matrizCusto, qtdOrigens, qtdDestinos));
         printf("\n_____________________________________________________________\n");
@@ -124,11 +124,11 @@ void MatrizTransporteInit(ptrNo origens, ptrNo destinos, FILE * fptr)
   	}
 
     printf("\n\n ********** Quadro de Custos ***********\n\n");
-    printf(fptr, "\n\n ********** Quadro de Custos ***********\n\n");
-    imprimirMatrizTransporte(matrizCusto, vetorOrigens, vetorDestinos, 0);
+    fprintf(fptr, "\n\n ********** Quadro de Custos ***********\n\n");
+    imprimirMatrizTransporte(matrizCusto, vetorOrigens, vetorDestinos, 0, fptr);
     printf("\n\n************ Quadro Final ************\n\n");
    	fprintf(fptr, "\n\n************ Quadro Final ************\n\n");
-    imprimirMatrizTransporte(matrizCusto, vetorOrigens, vetorDestinos, 1); //custosOtimzado
+    imprimirMatrizTransporte(matrizCusto, vetorOrigens, vetorDestinos, 1, fptr); //custosOtimzado
     printf(">Custo do Transporte = %d\n\n", calculoTransporte(matrizCusto, qtdOrigens, qtdDestinos));
    	fprintf(fptr,">Custo do Transporte = %d\n\n", calculoTransporte(matrizCusto, qtdOrigens, qtdDestinos));
    }
@@ -159,7 +159,7 @@ void MatrizTransporteInit(ptrNo origens, ptrNo destinos, FILE * fptr)
        	castMatrizTransporteInit(matrizCusto, vetorOrigens, vetorDestinos, qtdOrigens, qtdDestinos);
        	printf("\n\n ********** Quadro de Custos ***********\n\n");
        	fprintf(fptr, "\n\n ********** Quadro de Custos ***********\n\n");
-       	imprimirMatrizTransporte(matrizCusto, vetorOrigens, vetorDestinos, 0);
+       	imprimirMatrizTransporte(matrizCusto, vetorOrigens, vetorDestinos, 0, fptr);
        	lst_info vetMinimos[qtdOrigens * qtdDestinos];
 	     	minimos(matrizCusto, qtdOrigens, qtdDestinos, vetorOrigens, vetorDestinos, vetMinimos);
 	 	    printf("\n\n ********** Quadro Inicial ***********\n\n");
@@ -174,7 +174,7 @@ void MatrizTransporteInit(ptrNo origens, ptrNo destinos, FILE * fptr)
 				vetorOrigens[i + 1]->dado.ofertaDemandaCustomizada -= vetorOrigens[i + 1]->dado.ofertaDemandaCustomizada;
    			}
    		}
-        imprimirMatrizTransporte(matrizCusto, vetorOrigens, vetorDestinos, 1);
+        imprimirMatrizTransporte(matrizCusto, vetorOrigens, vetorDestinos, 1, fptr);
 
    		while(1) {
 
@@ -186,8 +186,8 @@ void MatrizTransporteInit(ptrNo origens, ptrNo destinos, FILE * fptr)
    		   	divisaoCustos(matrizCusto, vetorOrigens, vetorDestinos, qtdOrigens, qtdDestinos + 1);
    			  analiseEconomica(matrizCusto, vetorOrigens, vetorDestinos, qtdOrigens, qtdDestinos + 1);
 
-   		   	imprimirMatrizTransporteDiviCustos(matrizCusto, vetorOrigens, vetorDestinos, qtdOrigens, qtdDestinos + 1);
-   			  imprimirMatrizTransporte(matrizCusto, vetorOrigens, vetorDestinos, 2); //Imprimi analise
+   		   	imprimirMatrizTransporteDiviCustos(matrizCusto, vetorOrigens, vetorDestinos, qtdOrigens, qtdDestinos + 1, fptr);
+   			  imprimirMatrizTransporte(matrizCusto, vetorOrigens, vetorDestinos, 2, fptr); //Imprimi analise
 
         	maiorMatriz(matrizCusto, qtdOrigens, qtdDestinos + 1, &idLin, &idCol);
         	printf("\nPosicao K = matriz[%d][%d]\n", idLin, idCol);
@@ -201,7 +201,7 @@ void MatrizTransporteInit(ptrNo origens, ptrNo destinos, FILE * fptr)
 
       		printf("\n\n ********** Quadro Apos Roteamento ***********\n\n");
       		fprintf(fptr, "\n\n ********** Quadro Apos Roteamento ***********\n\n");
-        	imprimirMatrizTransporte(matrizCusto, vetorOrigens, vetorDestinos, 1); //custosOtimzado
+        	imprimirMatrizTransporte(matrizCusto, vetorOrigens, vetorDestinos, 1, fptr); //custosOtimzado
         	printf(">Custo do Transporte = %d\n", calculoTransporte(matrizCusto, qtdOrigens, qtdDestinos + 1));
         	fprintf(fptr, ">Custo do Transporte = %d\n", calculoTransporte(matrizCusto, qtdOrigens, qtdDestinos + 1));
         	printf("\n_____________________________________________________________\n");
@@ -210,10 +210,10 @@ void MatrizTransporteInit(ptrNo origens, ptrNo destinos, FILE * fptr)
 
         printf("\n\n ********** Quadro de Custos ***********\n\n");
         fprintf(fptr, "\n\n ********** Quadro de Custos ***********\n\n");
-        imprimirMatrizTransporte(matrizCusto, vetorOrigens, vetorDestinos, 0);
+        imprimirMatrizTransporte(matrizCusto, vetorOrigens, vetorDestinos, 0, fptr);
        	printf("\n\n************ Quadro Final ************\n\n");
        	fprintf(fptr, "\n\n************ Quadro Final ************\n\n");
-       	imprimirMatrizTransporte(matrizCusto, vetorOrigens, vetorDestinos, 1); //custosOtimzado
+       	imprimirMatrizTransporte(matrizCusto, vetorOrigens, vetorDestinos, 1, fptr); //custosOtimzado
        	printf(">Custo do Transporte = %d\n\n", calculoTransporte(matrizCusto, qtdOrigens, qtdDestinos + 1));
        	fprintf(fptr, ">Custo do Transporte = %d\n\n", calculoTransporte(matrizCusto, qtdOrigens, qtdDestinos + 1));
 
@@ -244,13 +244,13 @@ void MatrizTransporteInit(ptrNo origens, ptrNo destinos, FILE * fptr)
        	castMatrizTransporteInit(matrizCusto, vetorOrigens, vetorDestinos, qtdOrigens, qtdDestinos);
        	printf("\n\n ********** Quadro de Custos ***********\n\n");
        	fprintf(fptr, "\n\n ********** Quadro de Custos ***********\n\n");
-       	imprimirMatrizTransporte(matrizCusto, vetorOrigens, vetorDestinos, 0);
+       	imprimirMatrizTransporte(matrizCusto, vetorOrigens, vetorDestinos, 0, fptr);
        	lst_info vetMinimos[qtdOrigens * qtdDestinos];
 	 	minimos(matrizCusto, qtdOrigens, qtdDestinos, vetorOrigens, vetorDestinos, vetMinimos);
 	 	printf("\n\n ********** Quadro Inicial ***********\n\n");
 	 	fprintf(fptr, "\n\n ********** Quadro Inicial ***********\n\n");
 	 	metodoMenorCusto(matrizCusto, vetorOrigens, vetorDestinos, vetMinimos, qtdOrigens, qtdDestinos);
-	 	imprimirMatrizTransporte(matrizCusto, vetorOrigens, vetorDestinos, 1);
+	 	imprimirMatrizTransporte(matrizCusto, vetorOrigens, vetorDestinos, 1, fptr);
 
    		for (i = 0; i < qtdDestinos; i++) {
    			if (vetorDestinos[i + 1]->dado.ofertaDemandaCustomizada != 0) {
@@ -271,8 +271,8 @@ void MatrizTransporteInit(ptrNo origens, ptrNo destinos, FILE * fptr)
    			divisaoCustos(matrizCusto, vetorOrigens, vetorDestinos, qtdOrigens + 1, qtdDestinos);
    			analiseEconomica(matrizCusto, vetorOrigens, vetorDestinos, qtdOrigens + 1, qtdDestinos);
 
-   			imprimirMatrizTransporteDiviCustos(matrizCusto, vetorOrigens, vetorDestinos, qtdOrigens + 1, qtdDestinos);
-   			imprimirMatrizTransporte(matrizCusto, vetorOrigens, vetorDestinos, 2); //Imprimi analise
+   			imprimirMatrizTransporteDiviCustos(matrizCusto, vetorOrigens, vetorDestinos, qtdOrigens + 1, qtdDestinos, fptr);
+   			imprimirMatrizTransporte(matrizCusto, vetorOrigens, vetorDestinos, 2, fptr); //Imprimi analise
 
         	maiorMatriz(matrizCusto, qtdOrigens + 1, qtdDestinos, &idLin, &idCol);
         	printf("\nPosicao K = matriz[%d][%d]\n", idLin, idCol);
@@ -286,7 +286,7 @@ void MatrizTransporteInit(ptrNo origens, ptrNo destinos, FILE * fptr)
 
       		printf("\n\n ********** Quadro Apos Roteamento ***********\n\n");
       		fprintf(fptr, "\n\n ********** Quadro Apos Roteamento ***********\n\n");
-        	imprimirMatrizTransporte(matrizCusto, vetorOrigens, vetorDestinos, 1); //custosOtimzado
+        	imprimirMatrizTransporte(matrizCusto, vetorOrigens, vetorDestinos, 1, fptr); //custosOtimzado
         	printf(">Custo do Transporte = %d\n", calculoTransporte(matrizCusto, qtdOrigens + 1, qtdDestinos));
         	fprintf(fptr, ">Custo do Transporte = %d\n", calculoTransporte(matrizCusto, qtdOrigens + 1, qtdDestinos));
         	printf("\n_____________________________________________________________\n");
@@ -295,10 +295,10 @@ void MatrizTransporteInit(ptrNo origens, ptrNo destinos, FILE * fptr)
 
         printf("\n\n ********** Quadro de Custos ***********\n\n");
         fprintf(fptr, "\n\n ********** Quadro de Custos ***********\n\n");
-        imprimirMatrizTransporte(matrizCusto, vetorOrigens, vetorDestinos, 0);
+        imprimirMatrizTransporte(matrizCusto, vetorOrigens, vetorDestinos, 0, fptr);
        	printf("\n\n************ Quadro Final ************\n\n");
        	fprintf(fptr, "\n\n************ Quadro Final ************\n\n");
-       	imprimirMatrizTransporte(matrizCusto, vetorOrigens, vetorDestinos, 1); //custosOtimzado
+       	imprimirMatrizTransporte(matrizCusto, vetorOrigens, vetorDestinos, 1, fptr); //custosOtimzado
        	printf(">Custo do Transporte = %d\n\n", calculoTransporte(matrizCusto, qtdOrigens + 1, qtdDestinos));
        	fprintf(fptr, ">Custo do Transporte = %d\n\n", calculoTransporte(matrizCusto, qtdOrigens + 1, qtdDestinos));
    	}
@@ -597,18 +597,18 @@ void celulaInfoMatrizInit(lst_info matriz[][MAX], ptrNo * vetorOrigens, ptrNo * 
 void imprimirMatrizTransporte(lst_info matriz[][MAX], ptrNo * vetorOrigens, ptrNo * vetorDestinos, int op, FILE * fptr)
 {
     int i, j;
-    if (op == 0){
+    if (op == 0) {
     	printf("\n[IMPRESSÃO MATRIZ TRANSPORTE]\n\n");
     	fprintf(fptr, "\n[IMPRESSÃO MATRIZ TRANSPORTE]\n\n");
 	}
     else if (op == 1) {
 	    	printf("\n[IMPRESSÃO MATRIZ TRANSPORTE (MENOR CUSTO/CANTO NOROESTE])\n\n");
-	    	frintf(fptr, "\n[IMPRESSÃO MATRIZ TRANSPORTE (MENOR CUSTO/CANTO NOROESTE])\n\n");
+	    	fprintf(fptr, "\n[IMPRESSÃO MATRIZ TRANSPORTE (MENOR CUSTO/CANTO NOROESTE])\n\n");
+	    }
         else {
         	printf("\n[IMPRESSÃO MATRIZ TRANSPORTE ANALISE ECOMICA]\n\n");
         	fprintf(fptr, "\n[IMPRESSÃO MATRIZ TRANSPORTE ANALISE ECOMICA]\n\n");
         }
-    }
 
     for (i = 0; vetorOrigens[i] != NULL; i++) {
         printf("%-10s\t", vetorOrigens[i]->dado.name);
@@ -638,20 +638,25 @@ void imprimirMatrizTransporte(lst_info matriz[][MAX], ptrNo * vetorOrigens, ptrN
     }
 }
 
-void imprimirMatrizTransporteDiviCustos(lst_info matriz[][MAX], ptrNo * vetorOrigens, ptrNo * vetorDestinos, int lin, int col)
+void imprimirMatrizTransporteDiviCustos(lst_info matriz[][MAX], ptrNo * vetorOrigens, ptrNo * vetorDestinos, int lin, int col, FILE *fptr)
 {
 	int i;
 	printf("\n[IMPRESSÃO MATRIZ TRANSPORTE DE DIVISAO DE CUSTOS]\n\n");
+	fprintf(fptr, "\n[IMPRESSÃO MATRIZ TRANSPORTE DE DIVISAO DE CUSTOS]\n\n");
 
 	for (i = 0; i < col; i++) {
         printf("y%d = %d\t", i + 1, vetorDestinos[i + 1]->dado.divisaoCustos);
+        fprintf(fptr, "y%d = %d\t", i + 1, vetorDestinos[i + 1]->dado.divisaoCustos);
     }
 
      printf("\n\n");
+     fprintf(fptr, "\n\n");
 
 	for (i = 0; i < lin; i++) {
 		printf("x%d = %d\t", i + 1, vetorOrigens[i + 1]->dado.divisaoCustos);
+		fprintf(fptr, "x%d = %d\t", i + 1, vetorOrigens[i + 1]->dado.divisaoCustos);
         printf("\n\n");
+        fprintf(fptr, "\n\n");
 	}
 }
 
@@ -748,8 +753,12 @@ int sizeListNos(ptrNo l, int * totalOfertaDemanda) {
 void ofertaDemanda(ptrNo l , char strOp[21])
 {
     int ofertaDemanda;
-    if (strcmp(strOp, "oferta") == 0)printf("\nOrigens\n");
-    else printf("\nDestinos\n");
+    if (strcmp(strOp, "oferta") == 0){
+    	printf("\nOrigens\n");
+    }
+    else {
+    	printf("\nDestinos\n");
+    }
 
     while (l != NULL) {
         if (!l->dado.flagTransbordo) {

@@ -26,7 +26,7 @@ typedef struct lstNo * ptrNo;
     ptrNo prox;
 };
 
-void mallocNos(ptrNo * , ptrNo * );
+void mallocNos(ptrNo * , ptrNo *, FILE *);
 
 void reallocListMatriz(ptrNo matriz, int qtdOrigens, int qtdDestinos);
 
@@ -44,7 +44,7 @@ int sizeListNos(ptrNo l, int *);
 
 void vereficaTransbordos(ptrNo origens, ptrNo destinos);
 
-void ofertaDemanda(ptrNo l , char * strOp );
+void ofertaDemanda(ptrNo l , char * strOp);
 
 void MatrizTransporteInit(ptrNo origens, ptrNo destinos, FILE *);
 
@@ -56,7 +56,7 @@ void celulaInfoMatrizInit(lst_info matriz[][MAX], ptrNo * vetorOrigens, ptrNo * 
 
 void imprimirMatrizTransporte(lst_info matriz[][MAX], ptrNo * vetorOrigens, ptrNo * vetorDestinos, int op, FILE *);
 
-void imprimirMatrizTransporteDiviCustos(lst_info matriz[][MAX], ptrNo * vetorOrigens, ptrNo * vetorDestinos, int lin, int col);
+void imprimirMatrizTransporteDiviCustos(lst_info matriz[][MAX], ptrNo * vetorOrigens, ptrNo * vetorDestinos, int lin, int col, FILE *);
 
 void vetoresOrigensDestinosInit(ptrNo origens, ptrNo destinos, ptrNo * vetorOrigens, ptrNo * vetorDestino);
 

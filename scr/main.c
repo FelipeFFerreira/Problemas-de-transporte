@@ -12,7 +12,7 @@ int main()
     inicializar_No(&origens);
     inicializar_No(&destinos);
 
-    mallocNos(&origens, &destinos);
+    mallocNos(&origens, &destinos, ptr_arq);
     imprimir_Nos(origens, ptr_arq);
 
     MatrizTransporteInit(origens, destinos, ptr_arq);
