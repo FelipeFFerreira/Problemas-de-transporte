@@ -135,7 +135,7 @@ void MatrizTransporteInit(ptrNo origens, ptrNo destinos, FILE * fptr)
 
    if(totalOferta > totalDemanda){
    		printf("\n\n>[ **** Foi Detectado Oferta > Demanda ****\n\n");
-   		fprintf(fptr, "\n\n>[ **** Foi Detectado Oferta > Demanda ****\n\n");
+   		fprintf(fptr, "\n\n>[ **** Foi Detectado Oferta > Demanda ****]\n\n");
    		int i, numeroInteracoes = 0;
         lst_info matrizCusto[qtdOrigens + 2][MAX];
         ptrNo vetorOrigens[qtdOrigens + 3];

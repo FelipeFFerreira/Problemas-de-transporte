@@ -1,21 +1,21 @@
 
 >[Informacoes Sobre As Rotas Criadas]
  
->Origem: A
-<Destinos: [ D ,E ,F ,]
+>Origem: brasil
+<Destinos: [ china ,eua ,]
 
 
->Origem: B
-<Destinos: [ D ,E ,F ,]
+>Origem: china
+<Destinos: [ eua ,japao ,]
 
 
->Origem: C
-<Destinos: [ D ,E ,F ,]
+>Origem: italia
+<Destinos: [ china ,japao ,]
 
 
 
 
->[ **** Foi Detectado Oferta == Demanda ****
+>[ **** Foi Detectado Oferta < Demanda ****
 
 
 
@@ -24,15 +24,17 @@
 
 [IMPRESSÃO MATRIZ TRANSPORTE]
 
-Origem    	D         	E         	F         	Oferta    	
+Origem    	china     	eua       	japao     	Oferta    	
 
-A         	10        	15        	20        	40        	
+brasil    	12        	10        	150       	1000      	
 
-B         	12        	25        	18        	100       	
+china     	0         	8         	6         	5000      	
 
-C         	16        	14        	24        	10        	
+italia    	7         	150       	15        	3500      	
 
-Demanda   	50        	40        	60        	0         	
+outros    	0         	0         	0         	500       	
+
+Demanda   	5000      	3000      	2000      	0         	
 
 
 
@@ -41,17 +43,19 @@ Demanda   	50        	40        	60        	0
 
 [IMPRESSÃO MATRIZ TRANSPORTE (MENOR CUSTO/CANTO NOROESTE])
 
-Origem    	D         	E         	F         	Oferta    	
+Origem    	china     	eua       	japao     	Oferta    	
 
-A         	40        	0         	0         	40        	
+brasil    	0         	1000      	0         	1000      	
 
-B         	10        	30        	60        	100       	
+china     	5000      	0         	0         	5000      	
 
-C         	0         	10        	0         	10        	
+italia    	0         	1500      	2000      	3500      	
 
-Demanda   	50        	40        	60        	0         	
+outros    	0         	0         	0         	500       	
 
->Custo do Transporte = 2490
+Demanda   	5000      	3000      	2000      	0         	
+
+>Custo do Transporte = 265000
 
 
 >[_______________________INTERACAO___________________________] [1]
@@ -59,29 +63,33 @@ Demanda   	50        	40        	60        	0
 
 [IMPRESSÃO MATRIZ TRANSPORTE DE DIVISAO DE CUSTOS]
 
-y1 = 10	y2 = 23	y3 = 16	
+y1 = 0	y2 = 10	y3 = -125	
 
 x1 = 0	
 
-x2 = 2	
+x2 = 0	
 
-x3 = -9	
+x3 = 140	
+
+x4 = -10	
 
 
 [IMPRESSÃO MATRIZ TRANSPORTE ANALISE ECOMICA]
 
-Origem    	D         	E         	F         	Oferta    	
+Origem    	china     	eua       	japao     	Oferta    	
 
-A         	0         	8         	-4        	0         	
+brasil    	-12       	0         	-275      	0         	
 
-B         	0         	0         	0         	1993376   	
+china     	0         	2         	-131      	0         	
 
-C         	-15       	0         	-17       	1929501088	
+italia    	133       	0         	0         	1993376   	
 
-Demanda   	1303620379	1332576864	0         	0         	
+outros    	-10       	0         	-135      	0         	
+
+Demanda   	0         	-638763408	-104593600	0         	
 
 
-Posicao K = matriz[1][2]
+Posicao K = matriz[3][1]
 
 
  ********** Quadro Apos Roteamento ***********
@@ -89,17 +97,19 @@ Posicao K = matriz[1][2]
 
 [IMPRESSÃO MATRIZ TRANSPORTE (MENOR CUSTO/CANTO NOROESTE])
 
-Origem    	D         	E         	F         	Oferta    	
+Origem    	china     	eua       	japao     	Oferta    	
 
-A         	10        	30        	0         	40        	
+brasil    	0         	1000      	0         	1000      	
 
-B         	40        	0         	60        	100       	
+china     	3500      	1500      	0         	5000      	
 
-C         	0         	10        	0         	10        	
+italia    	1500      	0         	2000      	3500      	
 
-Demanda   	50        	40        	60        	0         	
+outros    	0         	500       	0         	500       	
 
->Custo do Transporte = 2250
+Demanda   	5000      	3000      	2000      	0         	
+
+>Custo do Transporte = 62500
 
 _____________________________________________________________
 
@@ -109,26 +119,86 @@ _____________________________________________________________
 
 [IMPRESSÃO MATRIZ TRANSPORTE DE DIVISAO DE CUSTOS]
 
-y1 = 10	y2 = 15	y3 = 16	
+y1 = 2	y2 = 10	y3 = 10	
 
 x1 = 0	
 
-x2 = 2	
+x2 = -2	
 
-x3 = -1	
+x3 = 5	
+
+x4 = -10	
 
 
 [IMPRESSÃO MATRIZ TRANSPORTE ANALISE ECOMICA]
 
-Origem    	D         	E         	F         	Oferta    	
+Origem    	china     	eua       	japao     	Oferta    	
 
-A         	0         	0         	-4        	0         	
+brasil    	-10       	0         	-140      	0         	
 
-B         	0         	-8        	0         	1993376   	
+china     	0         	0         	2         	0         	
 
-C         	-7        	0         	-9        	1929501088	
+italia    	0         	-135      	0         	1993376   	
 
-Demanda   	1303620379	1332576864	0         	0         	
+outros    	-8        	0         	0         	0         	
+
+Demanda   	0         	-638763408	-104593600	0         	
+
+
+Posicao K = matriz[2][3]
+
+
+ ********** Quadro Apos Roteamento ***********
+
+
+[IMPRESSÃO MATRIZ TRANSPORTE (MENOR CUSTO/CANTO NOROESTE])
+
+Origem    	china     	eua       	japao     	Oferta    	
+
+brasil    	0         	1000      	0         	1000      	
+
+china     	1500      	1500      	2000      	5000      	
+
+italia    	3500      	0         	0         	3500      	
+
+outros    	0         	500       	0         	500       	
+
+Demanda   	5000      	3000      	2000      	0         	
+
+>Custo do Transporte = 58500
+
+_____________________________________________________________
+
+
+>[_______________________INTERACAO___________________________] [3]
+
+
+[IMPRESSÃO MATRIZ TRANSPORTE DE DIVISAO DE CUSTOS]
+
+y1 = 2	y2 = 10	y3 = 8	
+
+x1 = 0	
+
+x2 = -2	
+
+x3 = 5	
+
+x4 = -10	
+
+
+[IMPRESSÃO MATRIZ TRANSPORTE ANALISE ECOMICA]
+
+Origem    	china     	eua       	japao     	Oferta    	
+
+brasil    	-10       	0         	-142      	0         	
+
+china     	0         	0         	0         	0         	
+
+italia    	0         	-135      	-2        	1993376   	
+
+outros    	-8        	0         	-2        	0         	
+
+Demanda   	0         	-638763408	-104593600	0         	
 
 
 Posicao K = matriz[1][2]
@@ -143,15 +213,17 @@ Posicao K = matriz[1][2]
 
 [IMPRESSÃO MATRIZ TRANSPORTE]
 
-Origem    	D         	E         	F         	Oferta    	
+Origem    	china     	eua       	japao     	Oferta    	
 
-A         	10        	15        	20        	40        	
+brasil    	12        	10        	150       	1000      	
 
-B         	12        	25        	18        	100       	
+china     	0         	8         	6         	5000      	
 
-C         	16        	14        	24        	10        	
+italia    	7         	150       	15        	3500      	
 
-Demanda   	50        	40        	60        	0         	
+outros    	0         	0         	0         	500       	
+
+Demanda   	5000      	3000      	2000      	0         	
 
 
 
@@ -160,15 +232,17 @@ Demanda   	50        	40        	60        	0
 
 [IMPRESSÃO MATRIZ TRANSPORTE (MENOR CUSTO/CANTO NOROESTE])
 
-Origem    	D         	E         	F         	Oferta    	
+Origem    	china     	eua       	japao     	Oferta    	
 
-A         	10        	30        	0         	40        	
+brasil    	0         	1000      	0         	1000      	
 
-B         	40        	0         	60        	100       	
+china     	1500      	1500      	2000      	5000      	
 
-C         	0         	10        	0         	10        	
+italia    	3500      	0         	0         	3500      	
 
-Demanda   	50        	40        	60        	0         	
+outros    	0         	500       	0         	500       	
 
->Custo do Transporte = 2250
+Demanda   	5000      	3000      	2000      	0         	
+
+>Custo do Transporte = 58500
 
