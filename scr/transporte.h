@@ -54,7 +54,7 @@ void minimos(lst_info matriz[][MAX], int lin, int col, ptrNo * vetorOrigens, ptr
 
 void celulaInfoMatrizInit(lst_info matriz[][MAX], ptrNo * vetorOrigens, ptrNo * vetorDestinos, int lin, int col, int totalOferta, int totalDemanda);
 
-void imprimirMatrizTransporte(lst_info matriz[][MAX], ptrNo * vetorOrigens, ptrNo * vetorDestinos, int op);
+void imprimirMatrizTransporte(lst_info matriz[][MAX], ptrNo * vetorOrigens, ptrNo * vetorDestinos, int op, FILE *);
 
 void imprimirMatrizTransporteDiviCustos(lst_info matriz[][MAX], ptrNo * vetorOrigens, ptrNo * vetorDestinos, int lin, int col);
 
